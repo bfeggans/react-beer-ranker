@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import AppHeader from './Header.js';
+import BeerInputter from './BeerInputter.js';
+import BeerList from './BeerList.js'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.addBeer = this.addBeer.bind(this);
+    this.state = { beerList: ['Modelo', 'PBR', 'Stone Delicious IPA'] }
+  }
+
+  addBeer(newBeer) {
+    this.setState({ beerList: this.state.beerList.concat(newBeer) })
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <AppHeader />
+        <BeerInputter addBeer={this.addBeer} />
+        <BeerList beers={this.state.beerList} />
       </div>
     );
   }

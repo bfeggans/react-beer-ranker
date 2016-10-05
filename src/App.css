@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 10s linear;
   height: 80px;
 }
 
@@ -14,11 +14,12 @@
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+@keyframes App-logo-spin {
+  0% { transform: rotate(-25deg); }
+  50% { transform: rotate(25deg); }
+  100% { transform: rotate(-25deg); }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ul {
+  list-style-type: none;
 }
