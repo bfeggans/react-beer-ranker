@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class BeerInputter extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { beerName: 'Miller Lite' };
     this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.addClickHandler = this.addClickHandler.bind(this);
