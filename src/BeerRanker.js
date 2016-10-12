@@ -11,9 +11,10 @@ class BeerRanker extends Component {
   }
 
   render() {
-    var optionList = [3,2,1].map(function(e, i) {
-      return <option key={i}>{e}</option>
-    });
+    var ranks = [3,2,1],
+        optionList = ranks.map(function(e, i) {
+          return <option key={i} value={e}>{e}</option>
+        });
 
     return (
       <div>

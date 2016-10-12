@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import AppHeader from './Header.js';
 import BeerInputter from './BeerInputter.js';
-import BeerList from './BeerList.js'
+import BeerList from './BeerList.js';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.addBeer = this.addBeer.bind(this);
     this.changeBeerRanking = this.changeBeerRanking.bind(this);
+    this.saveDescription = this.saveDescription.bind(this);
     this.state = { beerList: [] };
   }
 
@@ -29,7 +30,7 @@ class App extends Component {
   componentDidMount() {
     var that = this;
     $.ajax({
-      url: 'http://www.mocky.io/v2/57fb3ee70f00003c034fd34e',
+      url: 'http://www.mocky.io/v2/57fdd59f1300006000dee239',
       dataType: 'jsonp',
       success: function(res) {
         that.setState({
@@ -44,12 +45,16 @@ class App extends Component {
     this.setState({ beerList: this.state.beerList.concat({name: newBeer, ranking: defaultRanking}) })
   }
 
+  saveDescription(description) {
+    setTimeout(() => alert(description + ' saved!'), 2000);
+  }
+
   render() {
     return (
       <div className="App">
         <AppHeader />
         <BeerInputter addBeer={this.addBeer} />
-        <BeerList beers={this.state.beerList} changeBeerRanking={this.changeBeerRanking} />
+        <BeerList beers={this.state.beerList} changeBeerRanking={this.changeBeerRanking} saveDescription={this.saveDescription}/>
       </div>
     );
   }
