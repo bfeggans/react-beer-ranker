@@ -18,10 +18,7 @@ class BeerDescription extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.inputVal} onChange={this.handleDescriptionChange}/>
-        <button type="button" onClick={this.setDescription}>Save</button>
-      </div>
+      <textarea type="text" value={this.state.inputVal} onChange={this.handleDescriptionChange} onBlur={this.setDescription}></textarea>
     )
   }
 }
