@@ -25,6 +25,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getBeersAndSetState();
+  }
+
+  getBeersAndSetState() {
     let that = this;
 
     this.fb.once('value').then(function(snapshot) {
@@ -40,7 +44,6 @@ class App extends Component {
   }
 
   changeBeerRanking(id, ranking) {
-    console.log(id);
     this.fb.child(id).update({
       ranking: ranking
     });
@@ -55,7 +58,7 @@ class App extends Component {
       ranking: defaultRanking,
       name: newBeer
     });
-    this.setState({ beerList: this.state.beerList.concat({name: newBeer, ranking: defaultRanking}) })
+    this.getBeersAndSetState();
   }
 
   deleteBeer(id) {
