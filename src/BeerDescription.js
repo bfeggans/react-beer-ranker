@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 class BeerDescription extends Component {
   constructor(props) {
     super(props);
-    this.setDescription = this.setDescription.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.state = {inputVal: this.props.beerDescription || ''};
   }
 
@@ -13,12 +11,17 @@ class BeerDescription extends Component {
   }
 
   setDescription(e) {
-    this.props.saveDescription(this.state.inputVal);
+    this.props.saveDescription(e.target.getAttribute('data-record-id'), this.state.inputVal);
   }
 
   render() {
     return (
-      <textarea type="text" value={this.state.inputVal} onChange={this.handleDescriptionChange} onBlur={this.setDescription}></textarea>
+      <textarea type="text"
+                value={this.state.inputVal}
+                data-record-id={this.props.id}
+                onChange={this.handleDescriptionChange.bind(this)}
+                onBlur={this.setDescription.bind(this)}>
+      </textarea>
     )
   }
 }

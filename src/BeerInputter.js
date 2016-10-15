@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class BeerInputter extends Component {
   constructor() {
     super();
-    this.state = { beerName: 'Miller Lite' };
+    this.state = { beerName: '' };
     this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.addClickHandler = this.addClickHandler.bind(this);
   }

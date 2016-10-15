@@ -1,0 +1,19 @@
+{
+  "beerList": [
+    {
+      "name": "Modelo",
+      "ranking": 2,
+      "description": "Great flavor and very drinkable. Consistent."
+    },
+    {
+      "name": "PBR",
+      "ranking": 1,
+      "description": "Everyone can agree."
+    },
+    {
+      "name": "Stone Delicious IPA",
+      "ranking": 3,
+      "description": "Hops out the arse."
+    }
+  ]
+}
